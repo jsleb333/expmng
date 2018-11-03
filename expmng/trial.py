@@ -4,6 +4,6 @@ class Trial:
     """
     
     """
-    def __init__(self, params):
-        self.params = params
+    def __init__(self, **exp_params):
+        self.exp_params = exp_params
     
