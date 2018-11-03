@@ -14,6 +14,7 @@ class Experiment:
         self.exp_name = exp_name
         self.trials = []
         self.sub_exps = []
+        self.selected_trials = []
 
     @staticmethod
     def load(filename=None):
@@ -42,12 +43,32 @@ class Experiment:
             return = pkl.load(file)
 
     def sort(self, key=lambda param: None):
+        """
+        Sorts the trials according to the key.
+
+        Args:
+            key (callable, optional): Function to compare the values of the parameter. By default, will sort according to the date.
+
+        Returns the list of sorted trials.
+        """
         pass
     
-    def filter(self, key=None):
+    def filter(self, key=None, value=None):
+        """
+        Filters the current selected trials, masking all trials not having the key.
+
+        Args:
+            key (string or None, optional): Parameter of the trial to apply a filter on. If None, returns a list of all possible filter keys.
+            value (int, float or str, optional): Value of the parameter to filter.
+        
+        Returns the list of filtered trials or a list of valid filter keys (if None).
+        """
         pass
     
     def list(self):
+        """
+        Lists all current selected trials.
+        """
         pass
 
 
