@@ -16,6 +16,14 @@ class Trial:
     def __init__(self, experiment, trial_name=None,
                  checkpoint_extension='.pkl', log_extension='.csv',
                  **trial_params):
+        """
+        Args:
+            experiment (Experiment object): Parent experiment of the trial.
+            trial_name (str or None, optional): Name of the trial to distinguish it from others. Should be unique.
+            checkpoint_extension (str, optional): Checkpoint will be saved with pickle extension '.pkl' by default.
+            log_extension (str, optional): Log will be saved with csv extension '.csv' by default.
+            trial_params (dict): All parameters needed to execute the trial.
+        """
         self.exp_name = experiment.exp_name
         self.trial_name = trial_name or self._generate_trial_name(experiment)
         self.trial_path = os.path.join(experiment.path, self.trial_name)
