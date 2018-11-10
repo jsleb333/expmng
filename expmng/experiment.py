@@ -6,12 +6,15 @@ class Experiment:
     """
     Class that contains the trials of an experiment. Can also contain recursively other subexperiments. This class implements an API to manage such experiments and trials.
     """
+    path_name = 'experiment'
+
     def __init__(self, exp_name):
         """
         Args:
             exp_name (str): Name of the experiment.
         """
         self.exp_name = exp_name
+        self.path = os.path.join('./', self.path_name)
         self.trials = []
         self.sub_exps = []
         self.selected_trials = []
@@ -52,7 +55,7 @@ class Experiment:
         Returns the list of sorted trials.
         """
         pass
-    
+
     def filter(self, key=None, value=None):
         """
         Filters the current selected trials, masking all trials not having the key.
@@ -60,11 +63,11 @@ class Experiment:
         Args:
             key (string or None, optional): Parameter of the trial to apply a filter on. If None, returns a list of all possible filter keys.
             value (int, float or str, optional): Value of the parameter to filter.
-        
+
         Returns the list of filtered trials or a list of valid filter keys (if None).
         """
         pass
-    
+
     def list(self):
         """
         Lists all current selected trials.
